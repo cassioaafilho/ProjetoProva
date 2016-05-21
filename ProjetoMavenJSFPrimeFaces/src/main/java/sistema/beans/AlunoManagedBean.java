@@ -13,6 +13,7 @@ import sistema.service.AlunoService;
 @SessionScoped
 public class AlunoManagedBean {
 	
+	
 	private Aluno aluno = new Aluno();
 	private AlunoService service = new AlunoService();
 	
