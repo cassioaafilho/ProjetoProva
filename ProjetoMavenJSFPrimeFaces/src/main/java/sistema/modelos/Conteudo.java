@@ -20,6 +20,15 @@ public class Conteudo {
 	private int Ordem;
 	@ManyToMany
 	private ArrayList<Pergunta> Perguntas = new ArrayList<Pergunta>();
+	@ManyToMany
+	private ArrayList<Prova> Provas = new ArrayList<Prova>();
+	
+	public ArrayList<Prova> getProvas() {
+		return Provas;
+	}
+	public void setProvas(ArrayList<Prova> provas) {
+		Provas = provas;
+	}
 	public int getId() {
 		return Id;
 	}

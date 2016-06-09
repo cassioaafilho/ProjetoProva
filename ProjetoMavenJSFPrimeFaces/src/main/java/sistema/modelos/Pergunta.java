@@ -1,6 +1,7 @@
 package sistema.modelos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Pergunta {
 	private String Titulo;
 	private int VezesUtilizadas;
 	@ManyToMany(mappedBy = "Perguntas")
-	private ArrayList<Conteudo> Conteudos = new ArrayList<Conteudo>();
+	private List<Conteudo> Conteudos = new ArrayList<Conteudo>();
 	@OneToOne
 	private Disciplina disciplina = new Disciplina();
 	@ManyToOne
@@ -33,10 +34,10 @@ public class Pergunta {
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
-	public ArrayList<Conteudo> getConteudos() {
+	public List<Conteudo> getConteudos() {
 		return Conteudos;
 	}
-	public void setConteudos(ArrayList<Conteudo> conteudos) {
+	public void setConteudos(List<Conteudo> conteudos) {
 		Conteudos = conteudos;
 	}
 	public Prova getProva() {

@@ -22,6 +22,6 @@ public class ConteudoService {
 	public List<Conteudo> getConteudos()
 	{
 		Conteudo p = new Conteudo();
-		return Service.Listar(p, "SELECT c FROM Conteudo AS c");
+		return Service.Listar(p, "SELECT c FROM Conteudo AS c WHERE c.Nome != ''");
 	}
 }

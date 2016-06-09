@@ -1,6 +1,7 @@
 package sistema.modelos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ public class Disciplina {
 	private int Id;
 	private String Nome;
 	@OneToMany
-	private ArrayList<Prova> Provas = new ArrayList<Prova>();
+	private List<Prova> Provas = new ArrayList<Prova>();
 	@ManyToOne
 	private Professor Professor = new Professor();
 	
@@ -51,7 +52,7 @@ public class Disciplina {
 		Conteudos = conteudos;
 	}*/
 	
-	public ArrayList<Prova> getProvas() {
+	public List<Prova> getProvas() {
 		return Provas;
 	}
 	public void setProvas(ArrayList<Prova> provas) {
