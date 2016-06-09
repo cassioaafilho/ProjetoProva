@@ -27,6 +27,7 @@
 					<f:selectItems value="#{perguntaManagedBean.disciplinas}" var="aux"
 						itemValue="#{aux}" itemLabel="#{aux.nome}" />
 				</p:selectOneMenu>
+				
 				<p:outputLabel value="Conteudo" />
 				<p:selectOneMenu value="#{perguntaManagedBean.conteudo}"
 					converter="converterConteudo">
@@ -34,9 +35,10 @@
 					<f:selectItems value="#{perguntaManagedBean.conteudos}" var="aux"
 						itemValue="#{aux}" itemLabel="#{aux.nome}" />
 				</p:selectOneMenu>
+				<h:messages id="errorMessages" style="color:red;margin:8px;" />
 	  </p:panelGrid>
 	  <p:commandButton value="Salvar" 
-	                 action="#{perguntaManagedBean.SalvarP}"
+	                 action="#{perguntaManagedBean.salvar}"
 	                 update=":formPergunta, :tabelaPergunta"
 	                 />
        </h:form>

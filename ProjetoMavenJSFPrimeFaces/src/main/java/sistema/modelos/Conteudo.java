@@ -18,7 +18,7 @@ public class Conteudo {
 	private int Id;
 	private String Nome;
 	private int Ordem;
-	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+	@ManyToMany
 	private ArrayList<Pergunta> Perguntas = new ArrayList<Pergunta>();
 	public int getId() {
 		return Id;
@@ -47,5 +47,26 @@ public class Conteudo {
 	@Override
 	public String toString() {
 		return "Conteudo [Id=" + Id + ", Nome=" + Nome + ", Ordem=" + Ordem + ", Perguntas=" + Perguntas + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+		return true;
+		if (obj == null)
+		return false;
+		if (getClass() != obj.getClass())
+		return false;
+		Conteudo other = (Conteudo) obj;
+		if (Id != other.Id)
+		return false;
+		return true;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+			int result = 1;
+			result = prime * result + Id;
+			return result;
 	}
 }

@@ -17,20 +17,22 @@ import sistema.service.PerguntaService;
 import sistema.service.ProfessorService;
 import sistema.service.DisciplinaService;
 
-@ManagedBean
+@ManagedBean(name = "perguntaManagedBean")
 @SessionScoped
 public class PerguntaManagedBean {
 	
+	private static final long serialVersionUID = 1L;
 	private Pergunta pergunta = new Pergunta();
-	private Disciplina disciplina = new Disciplina();
-	private Conteudo conteudo = new Conteudo();
+	private Disciplina disciplina;
+	private Conteudo conteudo;
 	private PerguntaService service = new PerguntaService();
 	private DisciplinaService dservice = new DisciplinaService();
 	private ConteudoService cservice = new ConteudoService();
 	private ProfessorService pservice = new ProfessorService();
-	private Pergunta perguntas;
-	private Disciplina disciplinas;
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public List<Disciplina> getDisciplinas() {
 		List<Disciplina> p = dservice.getDisciplinas();
 		if(p.size() == 0)
@@ -79,9 +81,6 @@ public class PerguntaManagedBean {
 		return p;
 	}
 
-	public void setDisciplinas(Disciplina disciplinas) {
-		this.disciplinas = disciplinas;
-	}
 
 	public Conteudo getConteudo() {
 		return conteudo;
@@ -99,14 +98,12 @@ public class PerguntaManagedBean {
 		this.disciplina = disciplina;
 	}
 
-	public void setPerguntas(Pergunta perguntas) {
-		this.perguntas = perguntas;
-	}
-
-	public void salvarP()
+	public String salvar()
 	{
+		pergunta.addConteudo(conteudo);
 		service.Salvar(pergunta);
 		pergunta = new Pergunta();
+		return null;
 	}
 
 	public Pergunta getPergunta() {
