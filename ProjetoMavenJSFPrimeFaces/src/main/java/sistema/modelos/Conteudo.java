@@ -18,7 +18,7 @@ public class Conteudo {
 	private int Id;
 	private String Nome;
 	private int Ordem;
-	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY,mappedBy = "Perguntas")
+	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	private ArrayList<Pergunta> Perguntas = new ArrayList<Pergunta>();
 	public int getId() {
 		return Id;

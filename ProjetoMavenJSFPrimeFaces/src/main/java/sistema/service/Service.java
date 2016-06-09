@@ -1,6 +1,7 @@
 package sistema.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +13,7 @@ public abstract class Service<T> {
 	
 	public static <T> void Salvar(T obj )
 	{
-		EntityManagerFactory emf= Persistence.createEntityManagerFactory("TesteDB");
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("ProjetoMavenJSFPrimeFaces");
 		EntityManager em = emf.createEntityManager( );
 	    em.getTransaction( ).begin( );
 	    
@@ -24,7 +25,7 @@ public abstract class Service<T> {
 	}
 	public  static <T>  void Deletar(T obj )
 	{
-		EntityManagerFactory emf= Persistence.createEntityManagerFactory("DBTeste");
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("ProjetoMavenJSFPrimeFaces");
 		EntityManager em = emf.createEntityManager( );
 	    em.getTransaction( ).begin( );
 	    
@@ -36,7 +37,7 @@ public abstract class Service<T> {
 	}
 	public static <T> void Editar(T obj )
 	{
-		EntityManagerFactory emf= Persistence.createEntityManagerFactory("DBTeste");
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("ProjetoMavenJSFPrimeFaces");
 		EntityManager em = emf.createEntityManager( );
 	    em.getTransaction( ).begin( );
 	    
@@ -46,15 +47,14 @@ public abstract class Service<T> {
 	    em.close();
 	    emf.close();
 	}
-	public static <T> ArrayList<T> Listar(T obj )
+	public static <T> List<T> Listar(T obj, String Query )
 	{
-		EntityManagerFactory emf= Persistence.createEntityManagerFactory("DBTeste");
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("ProjetoMavenJSFPrimeFaces");
 		EntityManager em = emf.createEntityManager( );
-		String classe = obj.getClass().getName();
 		TypedQuery<String> query = em.createQuery(
-			      "SELECT * FROM " + classe + " AS c", String.class);
+				Query, String.class);
 	    @SuppressWarnings("unchecked")
-		ArrayList<T> lista = (ArrayList<T>) query.getResultList();
+		List<T> lista = (List<T>)query.getResultList();
 	    em.close();
 	    emf.close();
 	    return lista;

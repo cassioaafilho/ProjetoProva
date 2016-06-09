@@ -1,9 +1,11 @@
 package sistema.modelos;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Afirmacao {
+	@Id
 	private String Texto;
 	private boolean Veracidade;
 	private String Justificativa;

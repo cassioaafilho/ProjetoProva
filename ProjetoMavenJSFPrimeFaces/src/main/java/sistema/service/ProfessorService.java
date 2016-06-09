@@ -1,6 +1,7 @@
 package sistema.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import sistema.modelos.Professor;
 
@@ -17,9 +18,9 @@ public class ProfessorService {
 	{
 		Service.Deletar(p);
 	}
-	public ArrayList<Professor> getProfessores()
+	public List<Professor> getProfessores()
 	{
 		Professor p = new Professor();
-		return Service.Listar(p);
+		return Service.Listar(p, "SELECT * FROM Professor AS c");
 	}
 }
