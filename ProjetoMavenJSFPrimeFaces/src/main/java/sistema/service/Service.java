@@ -17,7 +17,7 @@ public abstract class Service<T> {
 		EntityManager em = emf.createEntityManager( );
 	    em.getTransaction( ).begin( );
 	    
-	    em.persist(obj);
+	    em.merge(obj);
 	    em.getTransaction().commit();
 	    
 	    em.close();

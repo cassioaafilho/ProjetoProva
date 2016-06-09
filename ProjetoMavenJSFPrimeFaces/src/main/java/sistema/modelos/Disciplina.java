@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Disciplina {
 	@Id 
@@ -15,12 +16,16 @@ public class Disciplina {
 	private int Id;
 	private String Nome;
 	@OneToMany
-	private ArrayList<Conteudo> Conteudos = new ArrayList<Conteudo>();
-	@OneToMany
 	private ArrayList<Prova> Provas = new ArrayList<Prova>();
 	@ManyToOne
 	private Professor Professor = new Professor();
 	
+	/*public Pergunta getPergunta() {
+		return pergunta;
+	}
+	public void setPergunta(Pergunta pergunta) {
+		this.pergunta = pergunta;
+	}*/
 	public Professor getProfessor() {
 		return Professor;
 	}
@@ -39,12 +44,12 @@ public class Disciplina {
 	public void setNome(String nome) {
 		Nome = nome;
 	}
-	public ArrayList<Conteudo> getConteudos() {
+	/*public ArrayList<Conteudo> getConteudos() {
 		return Conteudos;
 	}
 	public void setConteudos(ArrayList<Conteudo> conteudos) {
 		Conteudos = conteudos;
-	}
+	}*/
 	
 	public ArrayList<Prova> getProvas() {
 		return Provas;
@@ -52,9 +57,14 @@ public class Disciplina {
 	public void setProvas(ArrayList<Prova> provas) {
 		Provas = provas;
 	}
+	
+	/*public void addConteudo(Conteudo c)
+	{
+		this.Conteudos.add(c);
+	}*/
 	@Override
 	public String toString() {
-		return "Disciplina [Id=" + Id + ", Nome=" + Nome + ", Conteudos=" + Conteudos + "]";
+		return "Disciplina [Id=" + Id + ", Nome=" + Nome;
 	}
 	
 	

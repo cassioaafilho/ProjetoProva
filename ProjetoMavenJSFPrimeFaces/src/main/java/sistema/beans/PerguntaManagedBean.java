@@ -51,6 +51,7 @@ public class PerguntaManagedBean {
 			d2.setProfessor(p1);
 			d3.setNome("CompGrafica");
 			d3.setProfessor(p1);
+			
 			dservice.Salvar(d1);
 			dservice.Salvar(d2);
 			dservice.Salvar(d3);
@@ -101,6 +102,7 @@ public class PerguntaManagedBean {
 	public String salvar()
 	{
 		pergunta.addConteudo(conteudo);
+		pergunta.setDisciplina(disciplina);
 		service.Salvar(pergunta);
 		pergunta = new Pergunta();
 		return null;

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.InheritanceType;
 
 @Entity
@@ -21,9 +22,17 @@ public class Pergunta {
 	private int VezesUtilizadas;
 	@ManyToMany(mappedBy = "Perguntas")
 	private ArrayList<Conteudo> Conteudos = new ArrayList<Conteudo>();
+	@OneToOne
+	private Disciplina disciplina = new Disciplina();
 	@ManyToOne
 	private Prova Prova = new Prova();
 	
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
 	public ArrayList<Conteudo> getConteudos() {
 		return Conteudos;
 	}

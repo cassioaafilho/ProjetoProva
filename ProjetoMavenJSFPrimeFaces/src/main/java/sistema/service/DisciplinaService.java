@@ -22,6 +22,6 @@ public class DisciplinaService {
 	public List<Disciplina> getDisciplinas()
 	{
 		Disciplina p = new Disciplina();
-		return Service.Listar(p, "SELECT c FROM Disciplina AS c");
+		return Service.Listar(p, "SELECT c FROM Disciplina AS c WHERE c.Nome != ''");
 	}
 }
