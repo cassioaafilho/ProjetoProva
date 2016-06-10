@@ -22,8 +22,16 @@ public class PDFWithText {
             PdfWriter.getInstance(doc, os);
             doc.open();
             int count = 1;
+            int bool = 0;
             for(Pergunta perg : perguntas)
 	        {
+            	if (bool == 0)
+            	{
+            		String a = perg.getDisciplina().getProfessor().getNome();
+            		Paragraph p0 = new Paragraph(a);
+            		bool = 1;
+            		 doc.add(p0);
+            	}
             	String text = Integer.toString(count) + "- ";
             	count++;
 	        	text += perg.getTitulo();

@@ -44,6 +44,7 @@ public class PerguntaManagedBean {
 			Disciplina d1 = new Disciplina();
 			Disciplina d2 = new Disciplina();
 			Disciplina d3 = new Disciplina();
+			Disciplina d4 = new Disciplina();
 			
 			d1.setNome("POOI");
 			d1.setProfessor(p1);
@@ -51,13 +52,17 @@ public class PerguntaManagedBean {
 			d2.setProfessor(p1);
 			d3.setNome("CompGrafica");
 			d3.setProfessor(p1);
+			d4.setNome("CompGrafica2");
+			d4.setProfessor(p1);
 			
 			dservice.Salvar(d1);
 			dservice.Salvar(d2);
 			dservice.Salvar(d3);
+			dservice.Salvar(d4);
 			p.add(d1);
 			p.add(d2);
 			p.add(d3);
+			p.add(d4);
 		}
 		return p;
 	}
